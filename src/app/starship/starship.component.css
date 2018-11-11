@@ -1,12 +1,12 @@
 .name {
     text-align: center;
-    color: white;
+    color: yellow;
     word-break: break-word;
 }
 .stops {
     text-align: center;
     font-size: 40px;
-    color: white;
+    color: yellow;
     word-break: break-word;
 }
 .unknown {
