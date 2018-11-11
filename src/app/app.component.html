@@ -1,9 +1,9 @@
 <div class="title-bar">
-    <span class="title">Distance in mega lights (MGLT).</span>
+    <span class="title">Please enter the distance in mega lights (MGLT):</span>
     <input type="number" [(ngModel)]="MGLT"/>
 </div>
-<div class="carrossel-container">
-    <button [ngStyle]="{visibility: previousPage ? 'visible' : 'hidden'}" class="arrow-button" (click)="goToPreviousPage()"><</button>
+<div *ngIf="!isLoading" class="carrossel-container">
+    <button [ngStyle]="{visibility: previousPage ? 'visible' : 'hidden'}" class="arrow-button" (click)="goToPreviousPage()"><-</button>
     <div class="carrossel">
         <starship
             *ngFor="let starship of starshipList"
@@ -11,6 +11,8 @@
             [totalMGLT]="MGLT">
         </starship>
     </div>
-    <button [ngStyle]="{visibility: nextPage ? 'visible' : 'hidden'}" class="arrow-button" (click)="goToNextPage()">></button>
+    <button [ngStyle]="{visibility: nextPage ? 'visible' : 'hidden'}" class="arrow-button" (click)="goToNextPage()">-></button>
 </div>
-
+<div *ngIf="isLoading" class="loading">
+    <img class="loading-img" src="../assets/loading.gif">
+</div>

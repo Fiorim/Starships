@@ -15,7 +15,6 @@ export class StarshipService {
   }
 
   getAmountOfStops(MGLT: string, totalMGLT: number, consumables: string): number {
-    debugger;
     if (MGLT != 'unknown' && consumables != 'unknown') {
       return totalMGLT / parseInt(MGLT) / this.getHoursFromConsumables(consumables);
     } else {

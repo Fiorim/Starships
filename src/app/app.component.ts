@@ -16,6 +16,8 @@ export class AppComponent {
   nextPage: string;
   previousPage: string;
 
+  isLoading = true;
+
   constructor(private starshipService: StarshipService) { }
 
   ngOnInit() {
@@ -23,10 +25,12 @@ export class AppComponent {
   }
 
   getStarshipList(url: string = '') {
+    this.isLoading = true;
     this.starshipService.getStarshipList(url).subscribe(response => {
       this.starshipList = response.results;
       this.nextPage = response.next;
       this.previousPage = response.previous;
+      this.isLoading = false;
     });
   }
 
