@@ -10,7 +10,7 @@ import { Starship } from './interfaces/starship.interface';
 export class AppComponent {
   title = 'Starships';
   starshipList: Starship[] = [];
-  stops: number = 1000000;
+  MGLT: number = 1000000;
 
   constructor(private starshipService: StarshipService) { }
 

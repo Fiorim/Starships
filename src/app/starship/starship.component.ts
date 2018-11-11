@@ -1,26 +1,27 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnChanges, Input } from '@angular/core';
 import { Starship } from '../interfaces/starship.interface';
+import { StarshipService } from '../starship.service';
 
 @Component({
   selector: 'starship',
   templateUrl: './starship.component.html',
   styleUrls: ['./starship.component.css']
 })
-export class StarshipComponent implements OnInit, Starship {
+export class StarshipComponent implements OnChanges, Starship {
 
   name: string;
   consumables: string;
-  MGLT: string;
-  amountOfStopsForResupply: number;
+  MGLT: number;
+  amountOfStopsForResupply: number = 0;
 
   @Input() APIResponse: Starship;
-  @Input() stops: number;
+  @Input() totalMGLT: number;
 
-  constructor() { }
+  constructor(private starshipService: StarshipService) { }
 
-  ngOnInit() {
+  ngOnChanges() {
     this.name = this.APIResponse.name;
-    this.amountOfStopsForResupply = this.APIResponse.amountOfStopsForResupply;
+    this.amountOfStopsForResupply = this.starshipService.getAmountOfStops(this.totalMGLT);
   }
 
 }
