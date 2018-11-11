@@ -14,11 +14,16 @@ export class StarshipService {
     return this.httpClient.get(url || 'https://swapi.co/api/starships/') as Observable<SWAPIStarship>;
   }
 
-  getAmountOfStops(MGLT: number, totalMGLT: number, consumables: string): number {
-    return totalMGLT / MGLT / this.getHoursFromConsumables(consumables);
+  getAmountOfStops(MGLT: string, totalMGLT: number, consumables: string): number {
+    debugger;
+    if (MGLT != 'unknown' && consumables != 'unknown') {
+      return totalMGLT / parseInt(MGLT) / this.getHoursFromConsumables(consumables);
+    } else {
+      return -1;
+    }
   }
 
-  private getHoursFromConsumables(consumables: string): number {
+  getHoursFromConsumables(consumables: string): number {
     if (consumables.includes('day')) {
       return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 24;
     } else if (consumables.includes('week')) {
