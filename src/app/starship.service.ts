@@ -10,8 +10,8 @@ export class StarshipService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getStarshipList(): Observable<SWAPIStarship> {
-    return this.httpClient.get('https://swapi.co/api/starships/') as Observable<SWAPIStarship>
+  getStarshipList(url: string): Observable<SWAPIStarship> {
+    return this.httpClient.get(url || 'https://swapi.co/api/starships/') as Observable<SWAPIStarship>
   }
 
   getAmountOfStops(MGLT: number, totalMGLT: number, consumables: string): number{

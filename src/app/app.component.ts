@@ -13,13 +13,29 @@ export class AppComponent {
   title = 'Starships';
   starshipList: Starship[] = [];
   MGLT: number = 1000000;
+  nextPage: string;
+  previousPage: string;
 
   constructor(private starshipService: StarshipService) { }
 
   ngOnInit() {
-    this.starshipService.getStarshipList().subscribe(response => {
+    this.getStarshipList();
+  }
+
+  getStarshipList(url: string = '') {
+    this.starshipService.getStarshipList(url).subscribe(response => {
       this.starshipList = response.results;
-    })
+      this.nextPage = response.next;
+      this.previousPage = response.previous;
+    });
+  }
+
+  goToNextPage() {
+    this.getStarshipList(this.nextPage);
+  }
+ 
+  goToPreviousPage() {
+    this.getStarshipList(this.previousPage);
   }
 
 }

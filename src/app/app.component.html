@@ -4,10 +4,12 @@
 </div>
 
 <div class="carrossel">
+    <button *ngIf="previousPage" class="arrow-button" (click)="goToPreviousPage()"><</button>
     <starship
         *ngFor="let starship of starshipList"
         [APIResponse]="starship"
         [totalMGLT]="MGLT">
     </starship>
+    <button *ngIf="nextPage" class="arrow-button" (click)="goToNextPage()">></button>
 </div>
 
