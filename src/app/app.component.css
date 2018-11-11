@@ -1,0 +1,30 @@
+body { 
+    background-color: gray;
+}
+
+.title-bar {
+    display: flex;
+    justify-content: center;
+    margin: 100px;
+}
+.title {
+    font-size: 22px;
+    color: yellow;
+}
+input {
+    border: 1px solid gray;
+    border-radius: 5px;
+    text-align: center;
+    margin-left: 10px;
+}
+.carrossel {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 100px;
+}
+starship {
+    display: inline-block;
+    background-color: black;
+    border-radius: 10px;
+    padding: 10px;
+}

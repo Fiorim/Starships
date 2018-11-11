@@ -1,8 +1,13 @@
-<span>Distance in mega lights (MGLT).</span><input type="number" [(ngModel)]="MGLT"/>
+<div class="title-bar">
+    <span class="title">Distance in mega lights (MGLT).</span>
+    <input type="number" [(ngModel)]="MGLT"/>
+</div>
 
-<starship
-    *ngFor="let starship of starshipList"
-    [APIResponse]="starship"
-    [totalMGLT]="MGLT">
-</starship>
+<div class="carrossel">
+    <starship
+        *ngFor="let starship of starshipList"
+        [APIResponse]="starship"
+        [totalMGLT]="MGLT">
+    </starship>
+</div>
 
