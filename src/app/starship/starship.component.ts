@@ -1,20 +1,26 @@
-import { Component, OnInit } from '@angular/core';
-import { StarshipService } from '../starship.service';
+import { Component, OnInit, Input } from '@angular/core';
+import { Starship } from '../interfaces/starship.interface';
 
 @Component({
   selector: 'starship',
   templateUrl: './starship.component.html',
   styleUrls: ['./starship.component.css']
 })
-export class StarshipComponent implements OnInit {
+export class StarshipComponent implements OnInit, Starship {
 
-  constructor(private starshipService: StarshipService) { }
+  name: string;
+  consumables: string;
+  MGLT: string;
+  amountOfStopsForResupply: number;
+
+  @Input() APIResponse: Starship;
+  @Input() stops: number;
+
+  constructor() { }
 
   ngOnInit() {
-    this.starshipService.getStarshipList().subscribe(response => {
-      debugger;
-      let x = response.results
-    })
+    this.name = this.APIResponse.name;
+    this.amountOfStopsForResupply = this.APIResponse.amountOfStopsForResupply;
   }
 
 }

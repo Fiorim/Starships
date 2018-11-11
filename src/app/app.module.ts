@@ -3,8 +3,9 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { StarshipComponent } from './starship/starship.component';
-import { StarshipService } from './starship.service';
 import { HttpClientModule } from '@angular/common/http';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -12,6 +13,8 @@ import { HttpClientModule } from '@angular/common/http';
     StarshipComponent
   ],
   imports: [
+    CommonModule,
+    FormsModule,
     BrowserModule,
     HttpClientModule
   ],
