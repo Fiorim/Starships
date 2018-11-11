@@ -1,9 +1,14 @@
 .name {
     text-align: center;
     color: white;
+    word-break: break-word;
 }
 .stops {
     text-align: center;
     font-size: 40px;
     color: white;
+    word-break: break-word;
+}
+.unknown {
+    font-size: 30px;
 }
