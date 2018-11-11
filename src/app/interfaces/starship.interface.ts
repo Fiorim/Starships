@@ -1,6 +1,6 @@
 export interface Starship {
     name: string;
     consumables: string;
-    MGLT: number;
+    MGLT: string;
     amountOfStopsForResupply: number
 }

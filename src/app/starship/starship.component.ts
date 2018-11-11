@@ -11,7 +11,7 @@ export class StarshipComponent implements OnChanges, Starship {
 
   name: string;
   consumables: string;
-  MGLT: number;
+  MGLT: string;
   amountOfStopsForResupply: number = 0;
 
   @Input() APIResponse: Starship;
@@ -21,7 +21,10 @@ export class StarshipComponent implements OnChanges, Starship {
 
   ngOnChanges() {
     this.name = this.APIResponse.name;
-    this.amountOfStopsForResupply = this.starshipService.getAmountOfStops(this.totalMGLT);
+    this.amountOfStopsForResupply = this.starshipService.getAmountOfStops(
+      parseInt(this.APIResponse.MGLT),
+      this.totalMGLT, 
+      this.APIResponse.consumables);
   }
 
 }
