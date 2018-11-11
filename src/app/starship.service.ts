@@ -11,27 +11,24 @@ export class StarshipService {
   constructor(private httpClient: HttpClient) { }
 
   getStarshipList(url: string): Observable<SWAPIStarship> {
-    return this.httpClient.get(url || 'https://swapi.co/api/starships/') as Observable<SWAPIStarship>
+    return this.httpClient.get(url || 'https://swapi.co/api/starships/') as Observable<SWAPIStarship>;
   }
 
-  getAmountOfStops(MGLT: number, totalMGLT: number, consumables: string): number{
+  getAmountOfStops(MGLT: number, totalMGLT: number, consumables: string): number {
     return totalMGLT / MGLT / this.getHoursFromConsumables(consumables);
   }
 
   private getHoursFromConsumables(consumables: string): number {
     if (consumables.includes('day')) {
       return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 24;
+    } else if (consumables.includes('week')) {
+      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 168;
+    } else if (consumables.includes('month')) {
+      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 731;
+    } else if (consumables.includes('year')) {
+      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 8766;
     }
-    else if (consumables.includes('week')) {
-      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 24 * 7;
-    }
-    else if (consumables.includes('month')) {
-      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 24 * 30;
-    }
-    else if (consumables.includes('year')) {
-      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 24 * 365;
-    }
-    
+
     return 0;
   }
 }
