@@ -4,7 +4,7 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { StarshipService } from './starship.service';
 
-describe('StarshipService', () => {
+fdescribe('StarshipService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientModule, HttpClientTestingModule],
