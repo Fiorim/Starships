@@ -17,5 +17,5 @@
     <button [ngStyle]="{visibility: nextPage ? 'visible' : 'hidden'}" class="arrow-button" (click)="goToNextPage()">-></button>
 </div>
 <div *ngIf="isLoading" class="loading">
-    <img class="loading-img" src="../assets/loading.gif">
+    <loader class="loading-img"></loader>
 </div>
