@@ -7,11 +7,9 @@ import { StarshipService } from '../starship.service';
   templateUrl: './starship.component.html',
   styleUrls: ['./starship.component.css']
 })
-export class StarshipComponent implements OnChanges, Starship {
+export class StarshipComponent implements OnChanges {
 
   name: string;
-  consumables: string;
-  MGLT: string;
   amountOfStopsForResupply = 0;
 
   @Input() APIResponse: Starship;
