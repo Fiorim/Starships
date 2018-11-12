@@ -7,12 +7,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { LoaderComponent } from './loader/loader.component';
+import { ErrorMessageComponent } from './error-message/error-message.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StarshipComponent,
-    LoaderComponent
+    LoaderComponent,
+    ErrorMessageComponent
   ],
   imports: [
     CommonModule,

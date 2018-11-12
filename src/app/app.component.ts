@@ -17,6 +17,7 @@ export class AppComponent {
   previousPage: string;
 
   isLoading = true;
+  hasError = false;
 
   constructor(private starshipService: StarshipService) { }
 
@@ -25,12 +26,17 @@ export class AppComponent {
   }
 
   getStarshipList(url: string = '') {
+    this.hasError = false;
     this.isLoading = true;
     this.starshipService.getStarshipList(url).subscribe(response => {
       this.starshipList = response.results;
       this.nextPage = response.next;
       this.previousPage = response.previous;
       this.isLoading = false;
+    }, error => {
+      this.hasError = true;
+      this.isLoading = false;
+      console.error(`Server error: ${error}`);
     });
   }
 

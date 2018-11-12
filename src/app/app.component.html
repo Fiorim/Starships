@@ -5,7 +5,7 @@
     <span class="title">Please enter the distance in mega lights (MGLT):</span>
     <input type="number" [(ngModel)]="MGLT"/>
 </div>
-<div *ngIf="!isLoading" class="carrossel-container">
+<div *ngIf="!isLoading && !hasError" class="carrossel-container">
     <button [ngStyle]="{visibility: previousPage ? 'visible' : 'hidden'}" class="arrow-button" (click)="goToPreviousPage()"><-</button>
     <div class="carrossel">
         <starship
@@ -18,4 +18,7 @@
 </div>
 <div *ngIf="isLoading" class="loading">
     <loader class="loading-img"></loader>
+</div>
+<div *ngIf="hasError">
+    <error-message></error-message>
 </div>
