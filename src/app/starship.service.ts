@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { SWAPIStarship } from 'src/app/interfaces/swapi-starship.interface';
+import { Hours } from './hours.enum';
 
 @Injectable({
   providedIn: 'root'
@@ -24,13 +25,13 @@ export class StarshipService {
 
   getHoursFromConsumables(consumables: string): number {
     if (consumables.includes('day')) {
-      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 24;
+      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * Hours.Day;
     } else if (consumables.includes('week')) {
-      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 168;
+      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * Hours.Week;
     } else if (consumables.includes('month')) {
-      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 731;
+      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * Hours.Month;
     } else if (consumables.includes('year')) {
-      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * 8766;
+      return parseInt(consumables.slice(0, consumables.indexOf(' '))) * Hours.Year;
     }
 
     return 0;
