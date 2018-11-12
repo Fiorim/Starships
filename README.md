@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Hot to run
 
-Run `nom install` to install the dependencies;
+Run `npm install` to install the dependencies;
 Run `ng serve` for a dev server. 
 Navigate to `http://localhost:4200/`.
 
