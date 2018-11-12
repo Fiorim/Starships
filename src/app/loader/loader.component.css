@@ -23,7 +23,7 @@
   .loader > div {
     height: 15px;
     width: 15px;
-    background-color: #eee;
+    background-color: yellow;
     float: left;
     margin: 0 5px 0 0;
     animation: loader 0.7s infinite;
